@@ -110,6 +110,7 @@ _______________________*/
 }
 #itemB {
     grid-area: b;
+    margin: -100px;
 }
 #itemD {
     grid-area: d;
@@ -166,9 +167,8 @@ select {
     text-decoration: none;
 }
 .last {
-    font-size: 3rem;
+    font-size: 2rem;
     color: blue;
-    margin-bottom: 20px;
 }
 /*敵
 -------------------------*/
