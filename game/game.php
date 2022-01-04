@@ -98,53 +98,53 @@ if ($hp === 0 || $thp === 0) {
 
 <body>
     <div class="big-game">
-            <div class="logo1">
-                <img class="mouse" src="../game/images/me.png" alt="">
-                <?php if ($kg) : ?>
-                    <li class="li"><?= h($kg) ?></li>
-                    <?= h($message) ?>
-                    <li class="li"><?= h("攻撃力:" . $attack) . "の攻撃" ?></li>
-                    <li class="li"> <?= h("敵のHP :" . $thp) ?></li>
-                <?php endif ?>
-                <?php if ($name) : ?>
-                    <li class="thp"> <?= h($name . "のHP :" . $hp) ?></li>
-                <?php endif ?>
-            </div>
-            <div class="fight">
-                <h1 class="page_game">FIGHT!!</h1>
-                <?php if ($hp === 0 || $thp === 0) : ?>
-                    <li class="last"><?= h($last) ?></li>
-                    <a class="butt" href="start.php">スタートへ戻る</a>
-                <?php endif ?>
-                <?php if ($hp > 0 && $thp > 0) : ?>
-                    <form class="form-area" action="" method="post">
-                        <li class="attack"> <?= h($name . "さん") ?></li>
-                        <li class="attack"><?= "攻撃技は？" ?></li>
-                            <select name="select" id="">
-                                <option value="1">パンチ</option>
-                                <option value="2">キック</option>
-                                <option value="3">投げ技</option>
-                                <option value="4">気功</option>
-                                <option value="5">爆弾</option>
-                                <option value="6">投げキッス</option>
-                            </select>
-                            <input type="hidden" name="name" value="<?= h($name) ?>">
-                            <input type="hidden" name="hp" value="<?= h($hp) ?>">
-                            <input type="hidden" name="thp" value="<?= h($thp) ?>">
-                            <input class="kou" type="submit" value="攻撃">
-                        </form>
-                <?php endif ?>
-            </div>
-            <div class="logo2"><img class="robot" src="../game/images/enemy.png" alt="">
-                <?php if ($tg) : ?>
-                    <li class="li"> <?= h($tg) ?></li>
-                    <?= h($messages) ?>
-                    <li class="li"><?= h("攻撃力" . $tkn . "攻撃") ?></li>
-                    <li class="li"> <?= h($name . "のHP :" . $hp) ?></li>
-                <?php endif ?>
-                <?php if ($name) : ?>
-                    <li class="thp"> <?= h("敵のHP :" . $thp) ?></li>
-                <?php endif ?>
-            </div>
+        <div class="logo1">
+            <img class="mouse" src="../game/images/me.png" alt="">
+            <?php if ($kg) : ?>
+                <p class="li"><?= h($kg) ?></p>
+                <?= h($message) ?>
+                <p class="li"><?= h("攻撃力:" . $attack) . "の攻撃" ?></p>
+                <p class="li"> <?= h("敵のHP :" . $thp) ?></p>
+            <?php endif ?>
+            <?php if ($name) : ?>
+                <p class="thp"> <?= h($name . "のHP :" . $hp) ?></p>
+            <?php endif ?>
+        </div>
+        <div id="container" class="fight">
+            <h1 id="itemA" class="page_game">FIGHT!!</h1>
+            <?php if ($hp === 0 || $thp === 0) : ?>
+                <div id="itemB" class="last"><?= h($last) ?></div>
+                <a id="itemD" class="butt" href="start.php">スタートへ戻る</a>
+            <?php endif ?>
+            <?php if ($hp > 0 && $thp > 0) : ?>
+                <p id="itemB" class="grid-itemB"> <?= h($name . "さん") ?></p>
+                <p id="itemD" class="grid-itemD"><?= "攻撃技は？" ?></p>
+                <form class="form-area" action="" method="post">
+                    <select id="itemC" name="select">
+                        <option value="1">パンチ</option>
+                        <option value="2">キック</option>
+                        <option value="3">投げ技</option>
+                        <option value="4">気功</option>
+                        <option value="5">爆弾</option>
+                        <option value="6">投げキッス</option>
+                    </select>
+                    <input type="hidden" name="name" value="<?= h($name) ?>">
+                    <input type="hidden" name="hp" value="<?= h($hp) ?>">
+                    <input type="hidden" name="thp" value="<?= h($thp) ?>">
+                    <input id="itemE" class="kou" type="submit" value="攻撃">
+                </form>
+            <?php endif ?>
+        </div>
+        <div class="logo2"><img class="robot" src="../game/images/enemy.png" alt="">
+            <?php if ($tg) : ?>
+                <p class="li"> <?= h($tg) ?></p>
+                <?= h($messages) ?>
+                <p class="li"><?= h("攻撃力" . $tkn . "攻撃") ?></p>
+                <p class="li"> <?= h($name . "のHP :" . $hp) ?></p>
+            <?php endif ?>
+            <?php if ($name) : ?>
+                <p class="thp"> <?= h("敵のHP :" . $thp) ?></p>
+            <?php endif ?>
+        </div>
     </div>
 </body>
