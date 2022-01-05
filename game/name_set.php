@@ -16,7 +16,7 @@
         <div class="name-top">
             <h1 class="name-title">名前を入力して下さい。</h1>
             <form action="game.php" method="post">
-                <input class="bu" type="text" name="name" maxlength='12'><br>
+                <input class="name_set" type="text" name="name" maxlength='12'><br>
                 <input type="hidden" name="hp">
                 <input class="but" type="submit" value="対戦開始">
             </form>
