@@ -46,11 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         if ($thp -= $attack) {
+            if ($thp > 0) {
+                $kg = createKg($name, $waz);
+            }
             if ($thp < 0) {
                 $thp = 0;
             }
         }
-        $kg = createKg($name, $waz);
         if ($tkn = rand(0, 3000)) {
             if ($tkn === 0) {
                 $messages = "攻撃に失敗!";
@@ -60,11 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
         if ($hp -= $tkn) {
+            if ($hp > 0) {
+                $tg = createTg();
+            }
             if ($hp < 0) {
                 $hp = 0;
             }
         }
-        $tg = createTg();
     }
 }
 if ($hp > 0 && $thp > 0) {
@@ -101,10 +105,10 @@ if ($hp === 0 || $thp === 0) {
         <div class="logo1">
             <img class="mouse" src="../game/images/me.png" alt="">
             <?php if ($kg) : ?>
-                <p class="li"><?= h($kg) ?></p>
+                <p><?= h($kg) ?></p>
                 <?= h($message) ?>
-                <p class="li"><?= h("攻撃力:" . $attack) . "の攻撃" ?></p>
-                <p class="li"> <?= h("敵のHP :" . $thp) ?></p>
+                <p><?= h("攻撃力:" . $attack) . "の攻撃" ?></p>
+                <p> <?= h("敵のHP :" . $thp) ?></p>
             <?php endif ?>
             <?php if ($name) : ?>
                 <p class="thp"> <?= h($name . "のHP :" . $hp) ?></p>
@@ -137,10 +141,10 @@ if ($hp === 0 || $thp === 0) {
         </div>
         <div class="logo2"><img class="robot" src="../game/images/enemy.png" alt="">
             <?php if ($tg) : ?>
-                <p class="li"> <?= h($tg) ?></p>
+                <p> <?= h($tg) ?></p>
                 <?= h($messages) ?>
-                <p class="li"><?= h("攻撃力" . $tkn . "攻撃") ?></p>
-                <p class="li"> <?= h($name . "のHP :" . $hp) ?></p>
+                <p><?= h("攻撃力" . $tkn . "攻撃") ?></p>
+                <p> <?= h($name . "のHP :" . $hp) ?></p>
             <?php endif ?>
             <?php if ($name) : ?>
                 <p class="thp"> <?= h("敵のHP :" . $thp) ?></p>

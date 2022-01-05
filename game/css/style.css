@@ -138,11 +138,13 @@ _______________________*/
 
 }
 .page_game {
-    font-size: 7rem;
     font-family: 'Bangers', cursive;
-    background: -webkit-linear-gradient(-45deg,#ff7b00,#e4b859 );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size:10em;
+
+	font-weight:bold;
+	color: transparent;
+	background: linear-gradient( 165deg, #f58300ea 0% 30% , #ffa34d 30% 55% ,#fb922fc4 55% 100%);
+	-webkit-background-clip: text;
 }
 .grid-itemB {
     font-size: 1.6rem;
