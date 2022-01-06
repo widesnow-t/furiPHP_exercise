@@ -8,7 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hp = filter_input(INPUT_POST, 'hp');
     $thp = filter_input(INPUT_POST, 'thp');
     $select = filter_input(INPUT_POST, 'select');
-
+    $kg = filter_input(INPUT_POST, 'kg');
+    $message = filter_input(INPUT_POST, 'message');
+    $messages = filter_input(INPUT_POST, 'messages');
+    $tg = filter_input(INPUT_POST, 'tg');
+    
     if (empty($hp)) {
         $hp = 10000;
         $thp = 10000;
@@ -39,15 +43,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($attack = rand(0, 3000)) {
             if ($attack === 0) {
-                $message = "攻撃に失敗";
+                if (isset($message)) {
+                    $message = "攻撃に失敗";
+                }
             }
             if ($attack >= 2000) {
-                $message = "クリティカルヒット!!";
+                if (isset($message)) {
+                    $message = "クリティカルヒット!!";
+                }
             }
         }
         if ($thp -= $attack) {
             if ($thp > 0) {
-                $kg = createKg($name, $waz);
+                if (isset($kg)) {
+                    $kg = createKg($name, $waz);
+                }
             }
             if ($thp < 0) {
                 $thp = 0;
@@ -55,15 +65,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($tkn = rand(0, 3000)) {
             if ($tkn === 0) {
-                $messages = "攻撃に失敗!";
+                if (isset($messages)) {
+                    $messages = "攻撃に失敗!";
+                }
             }
             if ($tkn >= 2000) {
-                $messages = "クリティカルヒット!!";
+                if (isset($messages)) {
+                    $messages = "クリティカルヒット!!";
+                }
             }
         }
         if ($hp -= $tkn) {
             if ($hp > 0) {
-                $tg = createTg();
+                if (isset($tg)) {
+                    $tg = createTg();
+                }
             }
             if ($hp < 0) {
                 $hp = 0;
@@ -135,6 +151,10 @@ if ($hp === 0 || $thp === 0) {
                     <input type="hidden" name="name" value="<?= h($name) ?>">
                     <input type="hidden" name="hp" value="<?= h($hp) ?>">
                     <input type="hidden" name="thp" value="<?= h($thp) ?>">
+                    <input type="hidden" name="kg" value="<?= h($kg) ?>">
+                    <input type="hidden" name="message" value="<?= h($message) ?>">
+                    <input type="hidden" name="messages" value="<?= h($messages) ?>">
+                    <input type="hidden" name="tg" value="<?= h($tg) ?>">
                     <input id="itemE" class="kou" type="submit" value="攻撃">
                 </form>
             <?php endif ?>
