@@ -92,6 +92,7 @@
 .logo1 {
     margin-top: 0;
     padding: 15%;
+    padding-top: 50%;
     order: 1;
 }
 
@@ -103,10 +104,12 @@ _______________________*/
         "a a a" 200px
         "b b c" 100px
         "d d e" 100px
-        /200px 100px 100px;
+        /200px 1px 100px;
 }
 #itemA {
     grid-area: a;
+    padding: 1px;
+    width: 150%;
 }
 #itemB {
     grid-area: b;
@@ -117,6 +120,9 @@ _______________________*/
 }
 #itemC {
     grid-area: c;
+    padding: 10px 30px;
+    margin-top: 20px;
+    height: 60%;
 }
 #itemE {
     grid-area: e;
@@ -136,22 +142,23 @@ _______________________*/
     box-shadow: 0px 10px 5px 1px gray;
     text-decoration: none;
     padding-top: 3%;
-
+    width: 150%;
 }
 .page_game {
     font-family: 'Bangers', cursive;
     font-size:10em;
-
 	font-weight:bold;
 	color: transparent;
 	background: linear-gradient( 165deg, #f58300ea 0% 30% , #ffa34d 30% 45% ,#fb922fc4 45% 100%);
 	-webkit-background-clip: text;
 }
 .grid-itemB {
-    font-size: 1.6rem;
+    font-size: 2rem;
+    font-weight: bolder;
 }
 .grid-itemD {
     font-size: 2rem;
+    font-weight: bolder;
 }
 select {
     background-color: honeydew;
@@ -160,14 +167,15 @@ select {
     height: 50px;
 }
 .kou {
-    font-size: 1.5rem;
+    font-size: 3rem;
+    font-weight: bolder;
     background: yellow;
     color: red;
     border-radius: 5px;
-    padding: 10px 20px;
-    margin-top: 30px;
+    margin-top: 10px;
     box-shadow: 0px 10px gray;
     text-decoration: none;
+    padding: 5px 25px;
 }
 .last {
     font-size: 2rem;
@@ -178,6 +186,7 @@ select {
 .logo2 {
     margin-top: 0;
     padding: 20%;
+    padding-top: 50%;
     order: 3;
 }
 .thp {

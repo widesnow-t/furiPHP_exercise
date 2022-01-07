@@ -9,10 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $thp = filter_input(INPUT_POST, 'thp');
     $select = filter_input(INPUT_POST, 'select');
     $kg = filter_input(INPUT_POST, 'kg');
-    $message = filter_input(INPUT_POST, 'message');
-    $messages = filter_input(INPUT_POST, 'messages');
     $tg = filter_input(INPUT_POST, 'tg');
-    
+
     if (empty($hp)) {
         $hp = 10000;
         $thp = 10000;
@@ -43,14 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($attack = rand(0, 3000)) {
             if ($attack === 0) {
-                if (isset($message)) {
                     $message = "攻撃に失敗";
-                }
             }
             if ($attack >= 2000) {
-                if (isset($message)) {
-                    $message = "クリティカルヒット!!";
-                }
+                    $message = "クリティカルヒット!";
             }
         }
         if ($thp -= $attack) {
@@ -65,14 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($tkn = rand(0, 3000)) {
             if ($tkn === 0) {
-                if (isset($messages)) {
                     $messages = "攻撃に失敗!";
-                }
             }
             if ($tkn >= 2000) {
-                if (isset($messages)) {
                     $messages = "クリティカルヒット!!";
-                }
             }
         }
         if ($hp -= $tkn) {
@@ -122,7 +112,7 @@ if ($hp === 0 || $thp === 0) {
             <img class="mouse" src="../game/images/me.png" alt="">
             <?php if ($kg) : ?>
                 <p><?= h($kg) ?></p>
-                <?= h($message) ?>
+                <p><?= h($message) ?></p>
                 <p><?= h("攻撃力:" . $attack) . "の攻撃" ?></p>
                 <p> <?= h("敵のHP :" . $thp) ?></p>
             <?php endif ?>
@@ -152,8 +142,6 @@ if ($hp === 0 || $thp === 0) {
                     <input type="hidden" name="hp" value="<?= h($hp) ?>">
                     <input type="hidden" name="thp" value="<?= h($thp) ?>">
                     <input type="hidden" name="kg" value="<?= h($kg) ?>">
-                    <input type="hidden" name="message" value="<?= h($message) ?>">
-                    <input type="hidden" name="messages" value="<?= h($messages) ?>">
                     <input type="hidden" name="tg" value="<?= h($tg) ?>">
                     <input id="itemE" class="kou" type="submit" value="攻撃">
                 </form>
@@ -162,7 +150,7 @@ if ($hp === 0 || $thp === 0) {
         <div class="logo2"><img class="robot" src="../game/images/enemy.png" alt="">
             <?php if ($tg) : ?>
                 <p> <?= h($tg) ?></p>
-                <?= h($messages) ?>
+                <p><?= h($messages) ?></p>
                 <p><?= h("攻撃力" . $tkn . "攻撃") ?></p>
                 <p> <?= h($name . "のHP :" . $hp) ?></p>
             <?php endif ?>
