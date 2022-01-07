@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $select = filter_input(INPUT_POST, 'select');
     $kg = filter_input(INPUT_POST, 'kg');
     $tg = filter_input(INPUT_POST, 'tg');
+    $message = filter_input(INPUT_POST, 'message');
+    $messages = filter_input(INPUT_POST, 'messages');
 
     if (empty($hp)) {
         $hp = 10000;
@@ -41,10 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($attack = rand(0, 3000)) {
             if ($attack === 0) {
-                    $message = "攻撃に失敗";
+                $message = "攻撃に失敗";
             }
             if ($attack >= 2000) {
-                    $message = "クリティカルヒット!";
+                $message = "クリティカルヒット!";
             }
         }
         if ($thp -= $attack) {
@@ -59,10 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if ($tkn = rand(0, 3000)) {
             if ($tkn === 0) {
-                    $messages = "攻撃に失敗!";
+                $messages = "攻撃に失敗!";
             }
             if ($tkn >= 2000) {
-                    $messages = "クリティカルヒット!!";
+                $messages = "クリティカルヒット!!";
             }
         }
         if ($hp -= $tkn) {
@@ -112,7 +114,7 @@ if ($hp === 0 || $thp === 0) {
             <img class="mouse" src="../game/images/me.png" alt="">
             <?php if ($kg) : ?>
                 <p><?= h($kg) ?></p>
-                <p><?= h($message) ?></p>
+                <p><?= $message ?></p>
                 <p><?= h("攻撃力:" . $attack) . "の攻撃" ?></p>
                 <p> <?= h("敵のHP :" . $thp) ?></p>
             <?php endif ?>
@@ -150,7 +152,7 @@ if ($hp === 0 || $thp === 0) {
         <div class="logo2"><img class="robot" src="../game/images/enemy.png" alt="">
             <?php if ($tg) : ?>
                 <p> <?= h($tg) ?></p>
-                <p><?= h($messages) ?></p>
+                <p><?= $messages ?></p>
                 <p><?= h("攻撃力" . $tkn . "攻撃") ?></p>
                 <p> <?= h($name . "のHP :" . $hp) ?></p>
             <?php endif ?>
